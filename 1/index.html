@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>通过Hugo和Actions快速搭建github博客 - CX330&#39;s blog</title><meta name="Description" content="通过Hugo和Actions快速搭建github博客"><meta property="og:title" content="通过Hugo和Actions快速搭建github博客" />
+<meta property="og:description" content="通过Hugo和Actions快速搭建github博客" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cx330star.github.io/1/" /><meta property="og:image" content="https://cx330star.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-13T10:54:32+08:00" /><meta property="og:site_name" content="CX330&#39;s blog" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://cx330star.github.io/logo.png"/>
+
+<meta name="twitter:title" content="通过Hugo和Actions快速搭建github博客"/>
+<meta name="twitter:description" content="通过Hugo和Actions快速搭建github博客"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/static/avatar.jpg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://cx330star.github.io/1/" /><link rel="next" href="https://cx330star.github.io/2/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "通过Hugo和Actions快速搭建github博客",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/cx330star.github.io\/1\/"
+        },"genre": "posts","keywords": "Blog","wordcount":  3426 ,
+        "url": "https:\/\/cx330star.github.io\/1\/","datePublished": "2022-11-15T00:00:00+00:00","dateModified": "2023-01-13T10:54:32+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "CX330"
+            },"description": "通过Hugo和Actions快速搭建github博客"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="CX330&#39;s blog">CX330</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='far fa-folder-open'></i>&nbsp; 文章 </a><a class="menu-item" href="/tags/"><i class='fas fa-tags'></i>&nbsp; 标签 </a><a class="menu-item" href="/categories/"><i class='fas fa-chart-pie'></i>&nbsp; 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="CX330&#39;s blog">CX330</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='far fa-folder-open'></i>&nbsp;文章</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags'></i>&nbsp;标签</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-chart-pie'></i>&nbsp;分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">通过Hugo和Actions快速搭建github博客</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>CX330</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%88%86%E4%BA%AB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习分享</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-15">2022-11-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3426 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a>
+      <ul>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#好处">好处</a></li>
+      </ul>
+    </li>
+    <li><a href="#部署本地环境">部署本地环境</a></li>
+    <li><a href="#git同步本地和远程仓库">Git同步本地和远程仓库</a></li>
+    <li><a href="#配置actions文件">配置Actions文件</a></li>
+    <li><a href="#生成并设置密钥">生成并设置密钥</a></li>
+    <li><a href="#自定义样式">自定义样式</a></li>
+    <li><a href="#集成不蒜子统计访问量">集成不蒜子统计访问量</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>简单叙述一下流程，先在本地仓库搭建好Hugo博客环境，再在github上创建两个仓库，其中一个可为任意名称的私有库暂且称其为<code>Blog_Private</code>，另一个必须是：github用户名.github.io为命名的公开库，假设你的用户名为xiaoming，该仓库名应为：<code>xiaoming.github.io</code>，且必须为公开库</p>
+<ul>
+<li>本地仓库</li>
+<li><code>Blog_Private</code>库</li>
+<li><code>xiaoming.github.io</code>库</li>
+</ul>
+<p>以上三个仓库准备好之后，再进行三步配置便可完成</p>
+<ul>
+<li>第一步，将本地仓库提交到<code>Blog_Private</code>库中</li>
+<li>第二步，配置Actions文件</li>
+<li>第三步，生成并设置密钥</li>
+</ul>
+<h3 id="思路">思路</h3>
+<p>本地同步<code>Blog_Private</code>库，<code>Blog_Private</code>库通过Actions自动部署静态页面到公开库<code>xiaoming.github.io</code>中，通过域名xiaoming.github.io访问到公开库<code>xiaoming.github.io</code>的pages中查看博客</p>
+<h3 id="好处">好处</h3>
+<p>该方法是把源码部署到私有库中，将自动生成的静态页面放在公开库<code>xiaoming.github.io</code>中，相较于直接将源码部署到<code>xiaoming.github.io</code>中更加安全方便</p>
+<h2 id="部署本地环境">部署本地环境</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><strong>只适用于Hugo系统</strong></p>
+<p><strong>推荐下载extended版本，该版本可自定义样式</strong></p>
+</div>
+        </div>
+    </div>
+<p>Hugo下载地址：https://github.com/gohugoio/hugo/releases</p>
+<p>解压到合适位置，配置hugo.exe的环境变量，方便使用命令行</p>
+<p>这里参考LoveIt主题的文档：https://hugoloveit.com/zh-cn/theme-documentation-basics/</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 创建一个网站并进入</span>
+</span></span><span class="line"><span class="cl">hugo new site my_website
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my_website
+</span></span><span class="line"><span class="cl"><span class="c1"># 通过git下载主题</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># git安装参考：https://blog.csdn.net/mukes/article/details/115693833，几乎可以一路默认</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改config.toml配置文件，可进入https://hugoloveit.com/zh-cn/theme-documentation-basics/，作为配置参考</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 中文需要在第二行添加一条配置</span>
+</span></span><span class="line"><span class="cl"><span class="nv">defaultContentLanguage</span> <span class="o">=</span> <span class="s2">&#34;zh-cn&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成第一篇文章，在first_post.md随意输入，draft: true 改为 draft: false</span>
+</span></span><span class="line"><span class="cl">hugo new posts/first_post.md
+</span></span><span class="line"><span class="cl"><span class="c1"># 本地启动测试</span>
+</span></span><span class="line"><span class="cl">hugo serve
+</span></span><span class="line"><span class="cl"><span class="c1"># 访问</span>
+</span></span><span class="line"><span class="cl">http://127.0.0.1:1313
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>能成功访问到并能正常打开文章，本地环境便部署成功</p>
+<p>还有很多主题可供选择：https://themes.gohugo.io/，使用时可参考Demo文档</p>
+<p>文章开头可参考</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;test&#34;
+</span></span><span class="line"><span class="cl">date: 1900-01-01
+</span></span><span class="line"><span class="cl">categories: [&#34;test&#34;]
+</span></span><span class="line"><span class="cl">tags: [&#34;test&#34;]
+</span></span><span class="line"><span class="cl">description: &#34;test&#34;
+</span></span><span class="line"><span class="cl">draft: false
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--more--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git同步本地和远程仓库">Git同步本地和远程仓库</h2>
+<p>通过HTTPS协议连接GitHub仓库，参考：https://www.cnblogs.com/liyan-blogs/p/15153764.html</p>
+<p><strong>过程中会遇到空目录不上传的问题，可在空目录中创建<code>.gitkeep</code>文件作为占位符</strong></p>
+<p><strong>注意这里同步的是Blog_Private仓库</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 配置git</span>
+</span></span><span class="line"><span class="cl">git config --global user.name “your name”
+</span></span><span class="line"><span class="cl">git config --global user.email “your email”
+</span></span><span class="line"><span class="cl"><span class="c1"># 在需要同步的本地仓库，执行初始化</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># git关联远程仓库地址的三种方式</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 1.先删后加，add是需要先删处再添加，origin默认推荐仓库名</span>
+</span></span><span class="line"><span class="cl">git remote remove origin
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/test/test.git
+</span></span><span class="line"><span class="cl"><span class="c1">## 2.修改，set-url是在已有连接时修改关联远程数据库</span>
+</span></span><span class="line"><span class="cl">git remote set-url &lt;remote_name&gt; &lt;remote_url&gt;
+</span></span><span class="line"><span class="cl">git remote set-url origin https://github.com/test/test.git
+</span></span><span class="line"><span class="cl"><span class="c1">## 3.直接修改config文件</span>
+</span></span><span class="line"><span class="cl">git config -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取token，在连接过程中会需要认证，选择token认证</span>
+</span></span><span class="line"><span class="cl">右上角头像 --&gt; Settings --&gt;  Developer Settings --&gt; Personal access tokens<span class="o">(</span>classic<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 将远程仓库的文件pull到本地</span>
+</span></span><span class="line"><span class="cl">git pull --rebase origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提交代码小脚本:upload.bat</span>
+</span></span><span class="line"><span class="cl">@echo off
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> 本地仓库根目录
+</span></span><span class="line"><span class="cl">git status	<span class="c1"># 查看代码状态</span>
+</span></span><span class="line"><span class="cl">git add .	<span class="c1"># 将代码添加到暂存区，(.代表该目录下所有文件、还可用*.md等等)</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>	<span class="c1"># 将代码提交到本地仓库(后跟该次提交的名称)</span>
+</span></span><span class="line"><span class="cl">git push origin master	<span class="c1"># 将代码push到远程仓库</span>
+</span></span><span class="line"><span class="cl">pause
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置actions文件">配置Actions文件</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><strong>在Blog_Private仓库的Actions中自定义一个workflows</strong></p>
+<p><strong>配置如下，只适用于Hugo系统</strong></p>
+</div>
+        </div>
+    </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">GitHub Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-20.04</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repositories</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;latest&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">deploy_key</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">external_repository</span><span class="p">:</span><span class="w"> </span><span class="l">xiaoming/xiaoming.github.io	# 只需修改此处，改为自己的用户名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置完成后，再次点击<code>Actions</code>，点击中间<code>main.yml</code>，点击<code>deploy</code>，若发现只有<code>Deploy</code>步骤报错，便配置成功</p>
+<p><strong>此处有两个问题</strong></p>
+<ul>
+<li><code>secrets.ACTIONS_DEPLOY_KEY</code>私钥和<code>xiaoming.github.io</code>的公钥未配置导致<code>Deploy</code>步骤报错</li>
+<li>若未出现则无需理会。Actions会自动部署到<code>xiaoming.github.io</code>库的master分支，而现在<code>xiaoming.github.io</code>库可能默认为main分支，需要重命名main为master</li>
+</ul>
+<h2 id="生成并设置密钥">生成并设置密钥</h2>
+<p>此处可参考：https://github.com/peaceiris/actions-gh-pages，Create SSH Deploy Key 处，有详细的位置图标</p>
+<p>执行以下命令会生成两个文件</p>
+<ul>
+<li><code>gh-pages.pub</code> 是公钥</li>
+<li><code>gh-pages</code> 是私钥</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;</span><span class="k">$(</span>git config user.email<span class="k">)</span><span class="s2">&#34;</span> -f gh-pages -N <span class="s2">&#34;&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>公钥<code>gh-pages.pub</code>放在<code>xiaoming.github.io</code>中<code>Settings</code>的<code>Deploy keys</code>中，名字随意</p>
+</li>
+<li>
+<p>私钥<code>gh-pages</code>放在<code>Blog_Private</code>中<code>Settings</code>的<code>Secrets</code>的<code>Actions</code>的<code>New repository secrets</code>，名字必须为<code>ACTIONS_DEPLOY_KEY</code></p>
+</li>
+</ul>
+<p>配置完成后，再次点击<code>Actions</code>，点击中间<code>main.yml</code>，点击右边<code>Re-run all jobs</code>，无报错，便完成</p>
+<h2 id="自定义样式">自定义样式</h2>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>信息<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">参考：https://lucas-0.github.io/</div>
+        </div>
+    </div>
+<p>创建文件：<code>\assets\css\\_custom.scss</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="c1">// ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Custom style
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 自定义样式
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">@import</span> <span class="sx">url(&#39;https://fonts.googleapis.com/css2?family=Rock+Salt&amp;family=Noto+Serif+SC&amp;family=Roboto+Slab:wght@100..900&amp;display=swap&#39;)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.page</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">position</span><span class="o">:</span> <span class="ni">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">max-width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">;</span> <span class="c1">//宽度限制800
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="ni">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建文件：<code>\assets\css\\_override.scss</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="c1">// ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Override Variables
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 覆盖变量
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @import url(&#39;https://fonts.proxy.ustclug.org/css2?family=Rock+Salt&amp;family=Noto+Serif+SC:wght@400;600;700&amp;family=Roboto+Slab:wght@400;600;700&amp;display=swap&#39;); //使用中科大加速
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @import url(&#39;https://fonts.googleapis.com/css2?family=Rock+Salt&amp;family=Noto+Serif+SC:wght@200..900&amp;family=Roboto+Slab:wght@100..900&amp;display=swap&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Font and Line Height
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$global-font-family</span><span class="o">:</span> <span class="s2">&#34;Roboto Slab&#34;</span><span class="o">,</span> <span class="s2">&#34;Noto Serif SC&#34;</span><span class="o">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="o">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="o">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="o">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="o">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="o">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="o">,</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="o">,</span> <span class="ni">system-ui</span><span class="o">,</span> <span class="ni">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$global-font-size</span><span class="o">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$global-font-weight</span><span class="o">:</span> <span class="mi">400</span><span class="p">;</span> <span class="c1">//粗细
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$global-line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span> <span class="c1">//文本行的基线间的距离 原始1.5rem会让屏幕宽不够时h1重合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="na">h1{font-size</span><span class="o">:</span><span class="mi">1</span><span class="mf">.5</span><span class="kt">em</span><span class="p">;}</span> <span class="c1">//原始为2em，会与行高1.5rem冲突，修改为1.5em
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$header-title-font-family</span><span class="o">:</span> <span class="s2">&#34;Rock Salt&#34;</span><span class="o">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="o">,</span> <span class="ni">system-ui</span><span class="o">,</span> <span class="ni">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Color of the secondary text
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$global-font-secondary-color</span><span class="o">:</span> <span class="mh">#7d7d84</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="集成不蒜子统计访问量">集成不蒜子统计访问量</h2>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>信息<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>参考：https://xwi88.com/hugo-plugin-busuanzi/</p>
+<p>不蒜子：http://busuanzi.ibruce.info/</p>
+</div>
+        </div>
+    </div>
+<p>将自定义配置添加在<code>[params.page]</code>文章页面全局配置里</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"> <span class="c"># xwi88 自定义配置 xwi88Cfg</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">xwi88Cfg</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">xwi88Cfg</span><span class="p">.</span><span class="nx">summary</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">update</span> <span class="p">=</span> <span class="kc">true</span> <span class="c"># summary 更新日期显示</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">xwi88Cfg</span><span class="p">.</span><span class="nx">page</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">update</span> <span class="p">=</span> <span class="kc">true</span> <span class="c"># pages 更新日期显示</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">xwi88Cfg</span><span class="p">.</span><span class="nx">busuanzi</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># custom uv for the whole site</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_uv</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_uv_pre</span> <span class="p">=</span> <span class="s1">&#39;&lt;i class=&#34;fa fa-user&#34;&gt;&lt;/i&gt;&#39;</span> <span class="c"># 字符或提示语</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_uv_post</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># custom pv for the whole site</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_pv</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_pv_pre</span> <span class="p">=</span> <span class="s1">&#39;&lt;i class=&#34;fa fa-eye&#34;&gt;&lt;/i&gt;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># site_pv_post = &#39;&lt;i class=&#34;far fa-eye fa-fw&#34;&gt;&lt;/i&gt;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">site_pv_post</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># custom pv span for one page only</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">page_pv</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">page_pv_pre</span> <span class="p">=</span> <span class="s1">&#39;&lt;i class=&#34;far fa-eye fa-fw&#34;&gt;&lt;/i&gt;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">page_pv_post</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>layouts/partials/plugin</code>目录里创建文件<code>busuanzi.html</code>，如果不存在该目录就创建目录，文件内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .params.enable }}
+</span></span><span class="line"><span class="cl">    {{ if eq .bsz_type &#34;footer&#34; }}
+</span></span><span class="line"><span class="cl">        {{/* 只有 footer 才刷新，防止页面进行多次调用，计数重复; 只要启用就计数，显示与否看具体设置 */}}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    {{ if or (eq .params.site_pv true) (eq .params.site_uv true) (eq .params.page_pv true) }}
+</span></span><span class="line"><span class="cl">        {{ if eq .bsz_type &#34;footer&#34; }}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                {{ if eq .params.site_pv true }}
+</span></span><span class="line"><span class="cl">                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_value_site_pv&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                        {{- with .params.page_pv_pre -}}
+</span></span><span class="line"><span class="cl">                            {{ . | safeHTML }}
+</span></span><span class="line"><span class="cl">                        {{ end }}
+</span></span><span class="line"><span class="cl">                        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_site_pv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                {{ if and (eq .params.site_pv true) (eq .params.site_uv true) }}
+</span></span><span class="line"><span class="cl">                    <span class="ni">&amp;nbsp;</span>|<span class="ni">&amp;nbsp;</span>              
+</span></span><span class="line"><span class="cl">                {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                {{ if eq .params.site_uv true }}
+</span></span><span class="line"><span class="cl">                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_value_site_uv&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                        {{- with .params.site_uv_pre -}}
+</span></span><span class="line"><span class="cl">                            {{ . | safeHTML }}
+</span></span><span class="line"><span class="cl">                        {{ end }}
+</span></span><span class="line"><span class="cl">                        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_site_uv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                {{ end }}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        {{/*  page pv 只在 page 显示  */}}
+</span></span><span class="line"><span class="cl">        {{ if and (eq .params.page_pv true) (eq .bsz_type &#34;page-reading&#34;) }}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_value_page_pv&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                {{- with .params.page_pv_pre -}}
+</span></span><span class="line"><span class="cl">                    {{ . | safeHTML }}
+</span></span><span class="line"><span class="cl">                {{ end }}
+</span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_page_pv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span><span class="ni">&amp;nbsp;</span>
+</span></span><span class="line"><span class="cl">                {{- T &#34;views&#34; -}}
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        {{ end }}
+</span></span><span class="line"><span class="cl">    {{ end }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制<code>themes/LoveIt/layouts/partials/footer.html</code>到<code>layouts/partials/footer.html</code></p>
+<p>在第9行<code>{{- end -}}</code>后回车添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- /* busuanzi plugin */ -}}
+</span></span><span class="line"><span class="cl">{{- partial &#34;plugin/busuanzi.html&#34; (dict &#34;params&#34; .Site.Params.xwi88Cfg.busuanzi &#34;bsz_type&#34; &#34;footer&#34;) -}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>复制<code>themes/LoveIt/layouts/posts/single.html</code>到<code>layouts/posts/single.html</code></p>
+<p>在第62行<code>{{- end -}}</code>后回车添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- /* busuanzi plugin */ -}}
+</span></span><span class="line"><span class="cl">{{- partial &#34;plugin/busuanzi.html&#34; (dict &#34;params&#34; .Site.Params.xwi88Cfg.busuanzi &#34;bsz_type&#34; &#34;page-reading&#34;) -}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">本地测试时出现大量的访问量是正常情况，部署到服务器上后，通过独自的url访问便会恢复正常</div>
+        </div>
+    </div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-01-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/blog/">Blog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/2/" class="next" rel="next" title="Python多线程卖票">Python多线程卖票<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class='fas fa-fan fa-spin fa-lg'></i>&nbsp;<i class='fas fa-fan fa-spin fa-lg'></i>&nbsp;<i class='fas fa-fan fa-spin fa-lg'></i></div>
+    
+        
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+        
+            <section>
+                
+                    <span id="busuanzi_container_value_site_pv"><i class="far fa-eye fa-fw"></i>
+                        
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+
+                
+                    &nbsp;|&nbsp;              
+                
+
+                
+                    <span id="busuanzi_container_value_site_uv"><i class="fa fa-user"></i>
+                        
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+            </section>
+        
+
+        
+        
+    
+
+<div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">CX330</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["CX330"],"clientID":"f0ab48658d666b223a17","clientSecret":"20cb837440067fc3691eacc0e49b31d08f34fc96","id":"fa06d89c65fb808240e37f4c9e128955","owner":"CX330","repo":"CX330_Comment","title":"通过Hugo和Actions快速搭建github博客"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

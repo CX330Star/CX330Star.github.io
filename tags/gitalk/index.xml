@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Gitalk - 标签 - CX330&#39;s blog</title>
+        <link>https://cx330star.github.io/tags/gitalk/</link>
+        <description>Gitalk - 标签 - CX330&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 08 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://cx330star.github.io/tags/gitalk/" rel="self" type="application/rss+xml" /><item>
+    <title>Python自动初始化Gitalk</title>
+    <link>https://cx330star.github.io/3/</link>
+    <pubDate>Thu, 08 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>CX330</author>
+    <guid>https://cx330star.github.io/3/</guid>
+    <description><![CDATA[简单记录一下大佬的脚本以防丢失]]></description>
+</item>
+</channel>
+</rss>
