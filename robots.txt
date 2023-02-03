@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://cx330star.github.io/sitemap.xml
+Sitemap: https://cx330.online/sitemap.xml

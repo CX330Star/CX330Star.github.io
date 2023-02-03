@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Blog - 标签 - CX330&#39;s blog</title>
-        <link>https://cx330star.github.io/tags/blog/</link>
+        <link>https://cx330.online/tags/blog/</link>
         <description>Blog - 标签 - CX330&#39;s blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://cx330star.github.io/tags/blog/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://cx330.online/tags/blog/" rel="self" type="application/rss+xml" /><item>
     <title>通过Hugo和Actions快速搭建github博客</title>
-    <link>https://cx330star.github.io/1/</link>
+    <link>https://cx330.online/1/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>CX330</author>
-    <guid>https://cx330star.github.io/1/</guid>
+    <guid>https://cx330.online/1/</guid>
     <description><![CDATA[通过Hugo和Actions快速搭建github博客]]></description>
 </item>
 </channel>
