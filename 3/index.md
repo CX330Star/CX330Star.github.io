@@ -15,7 +15,7 @@
 
 修改第27行`.Date`=>`(md5 .RelPermalink)`
 
-![comment id](../static/3/1.png)
+![image](../static/3/1.png)
 
 大佬的脚本：
 
